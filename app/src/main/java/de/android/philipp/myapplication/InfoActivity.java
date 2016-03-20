@@ -16,50 +16,28 @@ import android.widget.TextView;
 /**
  * Created by Philipp on 18.03.2016.
  */
-public class MainActivity extends Activity {
+public class InfoActivity extends Activity {
 
-
-    Button btn1;
-    Button btn2;
-    Button btn3;
-    TextView title;
+    Button start;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.main);
+        setContentView(R.layout.info);
 
-        View decorView = getWindow().getDecorView();
-        int uiOptions = View.SYSTEM_UI_FLAG_LAYOUT_STABLE
-                | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
-                | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
-                | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION // hide nav bar
-                | View.SYSTEM_UI_FLAG_FULLSCREEN // hide status bar
-                | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY;
-        decorView.setSystemUiVisibility(uiOptions);
-
-        ImageView view = (ImageView) findViewById(R.id.imageView);
+        ImageView view = (ImageView) findViewById(R.id.imageViewInfo);
         view.setImageDrawable(getResources().getDrawable(R.drawable.laser));
         Bitmap map = drawableToBitmap(view.getDrawable());
         setBlurImageToImageView(map, view);
 
         Typeface font = Typeface.createFromAsset(getAssets(), "airstrike.ttf");
 
-
-        title = (TextView) findViewById(R.id.txtTitle);
-        btn1 = (Button) findViewById(R.id.btnStart);
-        btn2 = (Button) findViewById(R.id.btnHighscore);
-        btn3 = (Button) findViewById(R.id.btnExit);
-
-        btn1.setOnClickListener(clickListener);
-        btn2.setOnClickListener(clickListener);
-        btn3.setOnClickListener(clickListener);
-
+        start = (Button)findViewById(R.id.btnInfoStart);
+        TextView title = (TextView) findViewById(R.id.txtRegeln);
+        start.setOnClickListener(clickListener);
+        start.setTypeface(font);
         title.setTypeface(font);
-        btn1.setTypeface(font);
-        btn2.setTypeface(font);
-        btn3.setTypeface(font);
     }
 
     private View.OnClickListener clickListener = new View.OnClickListener(){
@@ -67,18 +45,9 @@ public class MainActivity extends Activity {
         @Override
         public void onClick(View v) {
             switch (v.getId()) {
-                case R.id.btnStart:
-                    ActivityStarten(InfoActivity.class);
+                case R.id.btnInfoStart:
+                    //ActivityStarten(InfoActivity.class);
                     break;
-
-                case R.id.btnHighscore:
-                    break;
-
-                case R.id.btnExit:
-                    finish();
-                    break;
-
-
             }
         }
     };
