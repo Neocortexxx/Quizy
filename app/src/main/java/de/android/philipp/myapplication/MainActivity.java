@@ -1,14 +1,20 @@
 package de.android.philipp.myapplication;
 
 import android.app.Activity;
+import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Typeface;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -23,6 +29,8 @@ public class MainActivity extends Activity {
     Button btn2;
     Button btn3;
     TextView title;
+
+    DialogBeenden _dialogBeenden;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,14 +80,47 @@ public class MainActivity extends Activity {
                     break;
 
                 case R.id.btnHighscore:
+                    ActivityStarten(HighscoreActivity.class);
                     break;
 
                 case R.id.btnExit:
-                    finish();
+                    onBackPressed();
                     break;
-
-
             }
+        }
+    };
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event)  {
+        if (Integer.parseInt(android.os.Build.VERSION.SDK) > 5
+                && keyCode == KeyEvent.KEYCODE_BACK
+                && event.getRepeatCount() == 0) {
+            Log.d("CDA", "onKeyDown Called");
+            onBackPressed();
+            return true;
+        }
+        return super.onKeyDown(keyCode, event);
+    }
+
+
+    @Override
+    public void onBackPressed() {
+        if(_dialogBeenden == null)
+        {
+            _dialogBeenden = new DialogBeenden(this);
+            _dialogBeenden.setOnDismissListener(onDismissListener);
+            Helfer.LadeDialog(_dialogBeenden, R.layout.dialog_beenden, true, WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.WRAP_CONTENT, this);
+            _dialogBeenden.init(MainActivity.this);
+        }
+        _dialogBeenden.show();
+    }
+
+    private Dialog.OnDismissListener onDismissListener = new Dialog.OnDismissListener()
+    {
+        @Override
+        public void onDismiss(DialogInterface dialog) {
+            if(_dialogBeenden.is_beenden())
+                finish();
         }
     };
 
@@ -87,7 +128,7 @@ public class MainActivity extends Activity {
     {
         Intent i = new Intent(this, klasse);
         startActivity(i);
-        this.overridePendingTransition(R.anim.left_to_right, R.anim.right_to_left);
+        //this.overridePendingTransition(R.anim.left_to_right, R.anim.right_to_left);
     }
 
     public static void setBlurImageToImageView(Bitmap bitmap, ImageView imageView)

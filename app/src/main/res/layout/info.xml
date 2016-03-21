@@ -8,6 +8,9 @@
         android:layout_alignParentStart="false"
         android:layout_alignParentEnd="false"
         android:scaleType="fitXY"/>
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
     <LinearLayout
         android:orientation="vertical"
@@ -32,7 +35,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet."
+            android:text="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet."
             android:id="@+id/textView"
             android:textColor="#FFFFFF"
             android:layout_gravity="center_horizontal"
@@ -43,11 +46,7 @@
         <Button
             android:layout_width="270dp"
             android:layout_height="60dp"
-            android:background="@drawable/button_menu"
-            android:shadowColor="#FFCC00"
-            android:shadowDx="0"
-            android:shadowDy="0"
-            android:shadowRadius="5"
+            android:background="@drawable/button_style"
             android:text="Los geht&apos;s!"
             android:textSize="30sp"
             android:textColor="#FFFFFF"
@@ -56,4 +55,7 @@
             android:layout_marginTop="50dp" />
 
     </LinearLayout>
+
+</ScrollView>
+
 </RelativeLayout>

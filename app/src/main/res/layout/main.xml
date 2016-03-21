@@ -37,40 +37,44 @@
             android:textColor="#FFFFFF"
             android:textSize="30sp"
 
-            android:layout_width="270dp"
+            android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:background="@drawable/button_menu"
+            android:background="@drawable/button_style"
             android:shadowColor="#FFCC00"
             android:shadowDx="0"
             android:shadowDy="0"
             android:shadowRadius="5"
             android:id="@+id/btnStart"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="30dp" />
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp" />
 
         <Button
             android:text="Highscore"
             android:textColor="#FFFFFF"
             android:textSize="30sp"
 
-            android:layout_width="270dp"
+            android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:background="@drawable/button_menu"
+            android:background="@drawable/button_style"
             android:shadowColor="#FFCC00"
             android:shadowDx="0"
             android:shadowDy="0"
             android:shadowRadius="5"
             android:id="@+id/btnHighscore"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="30dp" />
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"/>
 
         <Button
             android:textColor="#FFFFFF"
             android:textSize="30sp"
 
-            android:layout_width="270dp"
+            android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:background="@drawable/button_menu"
+            android:background="@drawable/button_style"
             android:shadowColor="#FFCC00"
             android:shadowDx="0"
             android:shadowDy="0"
@@ -78,6 +82,8 @@
             android:text="Beenden"
             android:id="@+id/btnExit"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="30dp" />
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"/>
     </LinearLayout>
 </RelativeLayout>

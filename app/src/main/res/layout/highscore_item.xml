@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout  xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+    android:layout_marginTop="10dp"
+    android:paddingTop="10dp"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp">
+
+    <TextView
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Name"
+        android:id="@+id/txtHighscoreUser"
+        android:textSize="18sp"
+        android:layout_marginLeft="10dp"
+        android:textColor="#ffffff" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Datum"
+        android:id="@+id/txtHighscoreDate"
+        android:layout_below="@+id/txtHighscoreUser"
+        android:layout_alignLeft="@+id/txtHighscoreUser"
+        android:layout_alignStart="@+id/txtHighscoreUser"
+        android:layout_marginLeft="20dp"
+        android:textSize="14sp"
+        android:layout_marginTop="10dp"
+        android:textColor="#ffffff"
+        android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Score"
+        android:id="@+id/txtScore"
+        android:layout_alignBottom="@+id/txtHighscoreUser"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="20dp"
+        android:textColor="#ffffff"
+        android:textAlignment="center"
+        android:layout_alignTop="@+id/txtHighscoreUser"
+        android:layout_toEndOf="@+id/txtHighscoreUser" />
+
+</RelativeLayout>

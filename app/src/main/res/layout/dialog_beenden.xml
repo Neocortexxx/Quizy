@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#000000">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Wollen Sie die App wirklich beenden?"
+        android:id="@+id/txtDialog"
+        android:layout_margin="10dp"
+        android:textColor="#ffffff"
+        android:textAlignment="center" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Beenden"
+            android:background="@drawable/button_style"
+            android:id="@+id/btnDialogBeenden"
+            android:layout_weight="1"
+            android:layout_margin="10dp"
+            android:textColor="#ffffff" />
+
+        <Button
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Abbrechen"
+            android:background="@drawable/button_style"
+            android:id="@+id/btnDialogAbbrechen"
+            android:layout_weight="1"
+            android:layout_margin="10dp"
+            android:textColor="#ffffff" />
+    </LinearLayout>
+</LinearLayout>
