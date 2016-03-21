@@ -1,14 +1,16 @@
 package de.android.philipp.myapplication;
 
 import android.app.Activity;
+import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
-import android.graphics.Typeface;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -16,31 +18,41 @@ import android.widget.TextView;
 /**
  * Created by Philipp on 18.03.2016.
  */
-public class InfoActivity extends Activity {
+public class GameActivity extends Activity {
 
-    Button start;
+    DialogCountdown _dialogCountdown;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.info);
+        setContentView(R.layout.game);
 
-        ImageView view = (ImageView) findViewById(R.id.imageViewInfo);
+        ImageView view = (ImageView) findViewById(R.id.imageViewGame);
         view.setImageDrawable(getResources().getDrawable(R.drawable.laser));
         Bitmap map = drawableToBitmap(view.getDrawable());
         setBlurImageToImageView(map, view);
 
         Helfer.SetSchriftarten(findViewById(R.id.rootView));
 
-        //Typeface font = Typeface.createFromAsset(getAssets(), "airstrike.ttf");
+        if(_dialogCountdown == null)
+        {
+            _dialogCountdown = new DialogCountdown(this);
+            _dialogCountdown.setOnDismissListener(onDismissListener);
+            Helfer.LadeDialog(_dialogCountdown, R.layout.dialog_countdown, true, WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.WRAP_CONTENT, this);
+            _dialogCountdown.init(GameActivity.this);
+        }
+        _dialogCountdown.show();
 
-        start = (Button)findViewById(R.id.btnInfoStart);
-        TextView title = (TextView) findViewById(R.id.txtRegeln);
-        start.setOnClickListener(clickListener);
-        //start.setTypeface(font);
-        //title.setTypeface(font);
     }
+
+    private Dialog.OnDismissListener onDismissListener = new Dialog.OnDismissListener()
+    {
+        @Override
+        public void onDismiss(DialogInterface dialog) {
+
+        }
+    };
 
     private View.OnClickListener clickListener = new View.OnClickListener(){
 
@@ -48,20 +60,11 @@ public class InfoActivity extends Activity {
         public void onClick(View v) {
             switch (v.getId()) {
                 case R.id.btnInfoStart:
-                    ActivityStarten(GameActivity.class);
+                    //ActivityStarten(InfoActivity.class);
                     break;
             }
         }
     };
-
-    private void ActivityStarten(Class klasse)
-    {
-        Intent i = new Intent(this, klasse);
-        startActivity(i);
-        //this.overridePendingTransition(R.anim.left_to_right, R.anim.right_to_left);
-    }
-
-
 
     public static void setBlurImageToImageView(Bitmap bitmap, ImageView imageView)
     {

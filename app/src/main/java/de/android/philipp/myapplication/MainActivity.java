@@ -36,6 +36,8 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        Helfer.LadeSchriftarten(MainActivity.this);
+
         setContentView(R.layout.main);
 
         View decorView = getWindow().getDecorView();

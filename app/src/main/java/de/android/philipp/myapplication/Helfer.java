@@ -5,14 +5,74 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.graphics.Typeface;
 import android.util.Log;
+import android.view.View;
+import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ScrollView;
+import android.widget.TextView;
 
 public class Helfer {
 
     public static final String REG_USERNAME = "username";
     public static final String REG_ID = "regId";
+
+    public static Typeface airstrike;
+
+    public static void LadeSchriftarten(Context context)
+    {
+        airstrike = Typeface.createFromAsset(context.getAssets(), "airstrike.ttf");
+    }
+
+    public static void SetSchriftarten(View view)
+    {
+
+        //LogWriter.Write(view.getContext(), "Helfer - SetSchriftarten Start", false);
+        if (view instanceof ViewGroup)
+            for (int i = 0; i < ((ViewGroup) view).getChildCount(); i++)
+            {
+                SetSchriftarten(((ViewGroup) view).getChildAt(i));
+            }
+
+        if (view instanceof ScrollView)
+        {
+            for (int i = 0; i < ((ScrollView) view).getChildCount(); i++)
+            {
+                SetSchriftarten(((ScrollView) view).getChildAt(i));
+            }
+        }
+        else if (view instanceof EditText)
+        {
+            if (view.getTag() != null && view.getTag().equals("RobotoRegular"))
+                ((EditText) view).setTypeface(airstrike);
+
+            if (view.getTag() == null)
+                ((EditText) view).setTypeface(airstrike);
+
+        }
+        else if (view instanceof TextView)
+        {
+            if (view.getTag() != null && view.getTag().equals("RobotoRegular"))
+                ((TextView) view).setTypeface(airstrike);
+
+            if (view.getTag() == null)
+                ((TextView) view).setTypeface(airstrike);
+        }
+        else if (view instanceof Button)
+        {
+            if (view.getTag() != null && view.getTag().equals("RobotoRegular"))
+                ((Button) view).setTypeface(airstrike);
+
+            if (view.getTag() == null)
+                ((Button) view).setTypeface(airstrike);
+        }
+        //LogWriter.Write(view.getContext(), "Helfer - SetSchriftarten Ende", false);
+
+    }
 
     public static void LadeDialog(Dialog dialog, int layout, boolean cancelable, int width, int height, Context context)
     {
