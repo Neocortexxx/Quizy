@@ -40,14 +40,7 @@ public class MainActivity extends Activity {
 
         setContentView(R.layout.main);
 
-        View decorView = getWindow().getDecorView();
-        int uiOptions = View.SYSTEM_UI_FLAG_LAYOUT_STABLE
-                | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
-                | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
-                | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION // hide nav bar
-                | View.SYSTEM_UI_FLAG_FULLSCREEN // hide status bar
-                | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY;
-        decorView.setSystemUiVisibility(uiOptions);
+        Helfer.UISetting(getWindow().getDecorView());
 
         ImageView view = (ImageView) findViewById(R.id.imageView);
         view.setImageDrawable(getResources().getDrawable(R.drawable.laser));
@@ -164,4 +157,12 @@ public class MainActivity extends Activity {
         //LogWriter.Write(Helfer.getMetter(), "Helfer - drawableToBitmap Ende", false);
         return bitmap;
     }
+
+    @Override
+    public void onResume() {
+        super.onResume();  // Always call the superclass method first
+        Helfer.UISetting(getWindow().getDecorView());
+    }
+
+
 }

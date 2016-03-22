@@ -26,6 +26,8 @@ public class InfoActivity extends Activity {
 
         setContentView(R.layout.info);
 
+        Helfer.UISetting(getWindow().getDecorView());
+
         ImageView view = (ImageView) findViewById(R.id.imageViewInfo);
         view.setImageDrawable(getResources().getDrawable(R.drawable.laser));
         Bitmap map = drawableToBitmap(view.getDrawable());
@@ -49,6 +51,7 @@ public class InfoActivity extends Activity {
             switch (v.getId()) {
                 case R.id.btnInfoStart:
                     ActivityStarten(GameActivity.class);
+                    finish();
                     break;
             }
         }
@@ -93,5 +96,11 @@ public class InfoActivity extends Activity {
 
         //LogWriter.Write(Helfer.getMetter(), "Helfer - drawableToBitmap Ende", false);
         return bitmap;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();  // Always call the superclass method first
+        Helfer.UISetting(getWindow().getDecorView());
     }
 }

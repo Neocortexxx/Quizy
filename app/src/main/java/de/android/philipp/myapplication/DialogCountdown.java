@@ -8,6 +8,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import java.util.concurrent.TimeUnit;
+
 public class DialogCountdown extends Dialog {
 
     TextView timer;
@@ -18,8 +20,9 @@ public class DialogCountdown extends Dialog {
     }
 
     public void init(Context con)
-    {//
+    {
         Helfer.SetSchriftarten(findViewById(R.id.rootViewDialogCount));
+        Helfer.UISetting(getWindow().getDecorView());
 
         timer = (TextView) findViewById(R.id.txtTimer);
         StartTimer();
@@ -27,10 +30,10 @@ public class DialogCountdown extends Dialog {
 
     private void StartTimer()
     {
-        new CountDownTimer(30000, 1000) {
+        new CountDownTimer(5000, 1000) {
 
             public void onTick(long millisUntilFinished) {
-                timer.setText(String.valueOf(millisUntilFinished / 1000));
+                timer.setText("" + millisUntilFinished / 1000 + " Sek ");
             }
 
             public void onFinish() {
@@ -39,4 +42,7 @@ public class DialogCountdown extends Dialog {
         }.start();
     }
 
+    @Override
+    public void onBackPressed() {
+    }
 }
