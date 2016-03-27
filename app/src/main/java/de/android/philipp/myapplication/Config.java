@@ -14,6 +14,7 @@ public interface Config {
     static final String GET_MY_GROUPS_URL = "http://lamp.wlan.hwr-berlin.de/museum/gcm/myGroups.php?";
 
     static final String GET_HIGHSCORES_URL = "http://lamp.wlan.hwr-berlin.de/museum/gcm/highscores.php";
+    static final String GET_QUESTION_URL = "http://lamp.wlan.hwr-berlin.de/museum/gcm/getFrageIDs.php?";
 
      // Google Project Number
     static final String GPID = "438051207740";
