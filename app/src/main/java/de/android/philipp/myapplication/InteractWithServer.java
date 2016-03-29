@@ -12,6 +12,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
@@ -382,6 +383,45 @@ public class InteractWithServer {
         StringBuilder quellcode = new StringBuilder();
         try {
             url = new URL(Config.GET_HIGHSCORES_URL);
+
+            String readLine = null;
+            String sResult = null;
+
+            BufferedReader buffReader = new BufferedReader(new InputStreamReader(url.openStream (),"UTF-8"));
+            while ((readLine = buffReader.readLine ()) != null) {
+                if (sResult == null) {
+                    quellcode.append(readLine);
+                }
+                else {
+                    quellcode.append(readLine);
+                }
+            }
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return quellcode.toString();
+
+    }
+
+    public static String GetFrageFromServer(final String kat, final List<String> IDs){
+
+        URL url = null;
+        StringBuilder quellcode = new StringBuilder();
+        try {
+
+            String IDList = "";
+            IDList = IDList + "(0";
+            for (String s: IDs) {
+                IDList = IDList + "," + s;
+            }
+            IDList = IDList + ")";
+
+            url = new URL(Config.GET_QUESTION_URL + "Kategorie=" + kat + "&IDs=" + IDList.toString());
 
             String readLine = null;
             String sResult = null;
