@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#000000"
+    android:id = "@+id/rootViewGameOver">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Game Over!"
+        android:id="@+id/txtDialog"
+        android:layout_margin="10dp"
+        android:textColor="#ffffff"
+        android:textAlignment="center" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Hauptmenü "
+            android:background="@drawable/button_style"
+            android:id="@+id/btnDialogGameOverMenu"
+            android:layout_weight="1"
+            android:layout_margin="10dp"
+            android:textColor="#ffffff" />
+
+        <Button
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Neue Runde "
+            android:background="@drawable/button_style"
+            android:id="@+id/btnDialogGameOverNeu"
+            android:layout_weight="1"
+            android:layout_margin="10dp"
+            android:textColor="#ffffff" />
+    </LinearLayout>
+</LinearLayout>

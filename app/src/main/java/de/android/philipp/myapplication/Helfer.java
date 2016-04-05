@@ -2,6 +2,7 @@ package de.android.philipp.myapplication;
 
 import android.app.Dialog;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
@@ -97,6 +98,13 @@ public class Helfer {
         dialog.getWindow().setAttributes(lp);
 
         dialog.setCancelable(cancelable);
+    }
+
+    public static void ActivityStarten(Context context, Class klasse)
+    {
+        Intent i = new Intent(context, klasse);
+        context.startActivity(i);
+        //this.overridePendingTransition(R.anim.left_to_right, R.anim.right_to_left);
     }
 
     public static String getUsername(Context context) {

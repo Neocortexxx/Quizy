@@ -71,11 +71,11 @@ public class MainActivity extends Activity {
         public void onClick(View v) {
             switch (v.getId()) {
                 case R.id.btnStart:
-                    ActivityStarten(InfoActivity.class);
+                    Helfer.ActivityStarten(MainActivity.this, InfoActivity.class);
                     break;
 
                 case R.id.btnHighscore:
-                    ActivityStarten(HighscoreActivity.class);
+                    Helfer.ActivityStarten(MainActivity.this, HighscoreActivity.class);
                     break;
 
                 case R.id.btnExit:
@@ -118,13 +118,6 @@ public class MainActivity extends Activity {
                 finish();
         }
     };
-
-    private void ActivityStarten(Class klasse)
-    {
-        Intent i = new Intent(this, klasse);
-        startActivity(i);
-        //this.overridePendingTransition(R.anim.left_to_right, R.anim.right_to_left);
-    }
 
     public static void setBlurImageToImageView(Bitmap bitmap, ImageView imageView)
     {
